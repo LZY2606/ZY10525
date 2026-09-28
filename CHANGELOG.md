@@ -1,0 +1,45 @@
+# Change Log
+
+## [2.2.0] - 2026-09-1 ([Milestone](https://github.com/touchlab/Kermit/milestone/5))
+### Changed
+- Added `kermit-coil3` extension for Coil3 support: [PR](https://github.com/touchlab/Kermit/pull/479)
+- Added `WasmWasi` support to `kermit-core` and `kermit-test`: [PR](https://github.com/touchlab/Kermit/pull/484), [Issue](https://github.com/touchlab/Kermit/issues/481)
+- Added `jvm`, `linux`, `mingwX64` and `Android Native` targets to the `kermit-ktor` module: [PR](https://github.com/touchlab/Kermit/pull/477), [Issue](https://github.com/touchlab/Kermit/issues/474)
+- Updating `RollingFileLogWriter` to now Catch IO exceptions: [PR](https://github.com/touchlab/Kermit/pull/483), [Issue](https://github.com/touchlab/Kermit/issues/480)
+- Fixing `LogcatWriter` failing issue with `UnsatisfiedLinkError`: [PR](https://github.com/touchlab/Kermit/pull/476), [Issue](https://github.com/touchlab/Kermit/issues/475)
+
+## [2.1.0] - 2026-03-02
+### Changed
+- Fixed incorrect severity for `Logger.a` on Android
+- Bumped `minSdk` to `23` and `compileSdk` to `36`
+- Updated samples in both platforms to have code parity
+
+## [2.0.6] - 2025-06-13
+### Changed
+- Fix: Issue with files not being closed by `RollingFileLogWriter`
+- Update: cinterop definitions used by `OSLogWriter` now have a kermit prefix to avoid conflicts with other libraries
+- New: Added an example of a test to `sample-production`
+
+## [2.0.5] - 2024-11-20
+### Changed
+- Added `kermit-io` module, which contains the `RollingFileLogWriter`. This is a log writer that writes to a file with rolling logs.
+- Updating `OSLogWriter` to take in three optional parameters to configure `OSLog`, and to enable/disable public logging
+- Updating the WASM Implementation to match newest recommendations
+- Updating kotlin version to `2.0.21`
+- Updating `logThrowable` to call `throwable.stackTraceToString()` instead of `throwable.getStackTrace().joinToString("\n")`
+
+## [2.0.4] - 2024-06-10
+### Changed
+- Added `ChunkedLogWriter`. This LogWriter can be used to wrap existing LogWriters and break their output into defined sizes. This is useful if your LogWriter outputs to something which limits message length (such as Logcat) (#396 thanks @psh)
+```kotlin
+Logger.setLogWriters(platformLogWriter().chunked(maxMessageLength = 4000))
+```
+## [2.0.3] - 2024-02-03
+
+### Fixed
+- Remove JUnit dependency from commonJvmMain source set (#390)
+
+### Changed
+- Kotlin 1.9.22
+- [Gradle Plugin] Gradle 8.4
+- [Gradle Plugin] Android Gradle Plugin 8.2.2

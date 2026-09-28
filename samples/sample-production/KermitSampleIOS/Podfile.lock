@@ -1,0 +1,23 @@
+PODS:
+  - Bugsnag (6.25.1)
+  - shared (0.0.1)
+
+DEPENDENCIES:
+  - Bugsnag
+  - shared (from `../shared`)
+
+SPEC REPOS:
+  trunk:
+    - Bugsnag
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../shared"
+
+SPEC CHECKSUMS:
+  Bugsnag: b10579241f2b7ae6f7c6b04f587c33b38ec5dca7
+  shared: 983dc25845ffd9786066f42f1d094f72b41f2e37
+
+PODFILE CHECKSUM: 3c766f7670f4e65f346904ffce262b5028e84071
+
+COCOAPODS: 1.16.2
